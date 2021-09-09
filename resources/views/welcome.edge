@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOT WA</title>
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+</head>
+<body>
+
+  <main>
+    <div id="atas">
+      <h1 class="title"> It Works! </h1>
+      <p class="subtitle">
+        Universitas 17 Agustus 1945
+      </p>
+    </div>
+  </main>
+  <main>
+    <div id="app">
+      <img src="" alt="QR Code" id="qrcode">
+      <h3>Logs:</h3>
+      <ul class="logs"></ul>
+    </div>
+  </main>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			const socket = io();
+
+			socket.on('message', function(msg) {
+				$('.logs').append($('<li>').text(msg));
+			});
+
+			socket.on('qr', function(src) {
+				$('#qrcode').attr('src', src);
+				$('#qrcode').show();
+			});
+
+			socket.on('ready', function(data) {
+				$('#qrcode').hide();
+			});
+
+			socket.on('authenticated', function(data) {
+				$('#qrcode').hide();
+			});
+		});
+	</script>
+</body>
+</html>
