@@ -1,0 +1,35 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ *
+ */
+
+.table-sticky {
+    position: relative;
+    overflow: auto;
+}
+
+.stay-there {
+    position: sticky;
+    position: -webkit-sticky;
+    background-color: white !important;
+}
+
+.table-th-sticky{
+    overflow-y: auto;
+}
+
+.table-th-sticky thead th{
+    position: sticky;
+    position: -webkit-sticky;
+    background-color: white !important;
+    top: 0;
+}
+
+.first-col {
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
+  left: 0px;
+}

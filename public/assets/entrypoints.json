@@ -7,6 +7,14 @@
       "js": [
         "http://localhost:8080/assets/app.js"
       ]
+    },
+    "fa": {
+      "css": [
+        "http://localhost:8080/assets/fa.css"
+      ],
+      "js": [
+        "http://localhost:8080/assets/fa.js"
+      ]
     }
   }
 }

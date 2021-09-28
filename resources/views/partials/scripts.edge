@@ -1,0 +1,58 @@
+<!-- For god sake delete method -->
+<form id="form-delete" method="post">
+    {{ csrfField() }}
+</form>
+
+<!-- General JS Scripts -->
+<script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/vendor/nicescroll/jquery.nicescroll.min.js')}}"></script>
+<script src="{{asset('assets/vendor/moment/moment.min.js')}}"></script>
+<script src="{{asset('assets/templates/js/stisla.js')}}"></script>
+
+<!-- JS Libraries -->
+<script src="{{asset('assets/vendor/izitoast/js/iziToast.min.js')}}"></script>
+<script src="{{asset('assets/vendor/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="{{asset('assets/vendor/select2/dist/js/select2.full.min.js')}}"></script>
+@!section('js-libraries')
+
+<!-- Template JS File -->
+<script src="{{asset('assets/templates/js/scripts.js')}}"></script>
+<script src="{{asset('assets/templates/js/custom.js')}}"></script>
+
+<script>
+    function deleteRecord(url){
+        Swal.fire({
+            title: 'Apakah anda yakin ?',
+            text: "Anda tidak dapat mengembalikan data ini !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Hapus !',
+            reverseButtons:true
+        }).then((result) => {
+            if (result.value) {
+                $("#form-delete").attr('action',url);
+                $("#form-delete").submit();
+            }
+        });
+    }
+
+    const status = session.get('status');
+    if(status === 'success'){
+        iziToast.success({
+            title: session.get('status', null),
+            message: session.get('status', null),
+            position: 'topCenter'
+        });
+    }else if(status==='error'){
+        iziToast.error({
+            title: session.get('status', null),
+            message: session.get('status', null),
+            position: 'topCenter'
+        });
+    }
+</script>
+
+@!section('js-additional')

@@ -21,3 +21,5 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'Website/HomeController.index')
+
+Route.get('/dashboard','Dashboard/DashboardController.index')

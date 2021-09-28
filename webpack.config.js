@@ -46,6 +46,7 @@ Encore.setPublicPath('/assets')
 |
 */
 Encore.addEntry('app', './resources/js/app.js')
+Encore.addEntry('fa', './resources/js/fa.js')
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,10 @@ Encore.addEntry('app', './resources/js/app.js')
 //   from: './resources/images',
 //   to: 'images/[path][name].[hash:8].[ext]',
 // })
+Encore.copyFiles({
+  from: './resources/assets',
+  to: '[path][name].[hash:8].[ext]',
+})
 
 /*
 |--------------------------------------------------------------------------
@@ -156,7 +161,7 @@ Encore.configureDevServerOptions((options) => {
 | favorite CSS precompiler
 |
 */
-// Encore.enableSassLoader()
+Encore.enableSassLoader()
 // Encore.enableLessLoader()
 // Encore.enableStylusLoader()
 
