@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node ace serve --watch",
+    "dev": "node ace serve --watch --encore-args=`--port 5000`",
     "build": "node ace build --production",
     "start": "node server.js",
     "lint": "eslint . --ext=.ts",
