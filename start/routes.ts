@@ -20,6 +20,13 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+const HttpNamespace = 'App/Controllers/Http';
+
+
 Route.get('/', 'Website/HomeController.index')
 
-Route.get('/dashboard','Dashboard/DashboardController.index')
+// Dashboard
+Route.group(() => {
+  Route.get('/','DashboardController.index').as('dashboard.index')
+}).prefix('dashboard').namespace(`${HttpNamespace}/Dashboard`)
+
