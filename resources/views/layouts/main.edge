@@ -9,7 +9,14 @@
         <div class="main-wrapper main-wrapper-1">
             @include('partials/navbar')
             @include('partials/sidebar')
-            @include('partials/content')
+            <div class="main-content">
+                @!section('section-header')
+                <section class="section mt-large">
+                  @!section('section-body')
+                </section>
+                @!section('modal')
+            </div>
+
             @include('partials/footer')
         </div>
     </div>
