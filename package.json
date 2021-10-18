@@ -35,6 +35,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@types/qrcode": "^1.4.1",
     "@types/socket.io": "^3.0.2",
+    "node-nlp": "^4.22.1",
     "proxy-addr": "^2.0.7",
     "qrcode": "^1.4.4",
     "reflect-metadata": "^0.1.13",

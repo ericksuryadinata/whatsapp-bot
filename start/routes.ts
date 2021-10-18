@@ -30,3 +30,8 @@ Route.group(() => {
   Route.get('/','DashboardController.index').as('dashboard.index')
 }).prefix('dashboard').namespace(`${HttpNamespace}/Dashboard`)
 
+Route.group(() => {
+  Route.get('/training','TestsController.training').as('tests.training')
+  Route.get('/extract','TestsController.extract').as('tests.extract')
+}).prefix('api').as('api').namespace(`${HttpNamespace}/Api`)
+
