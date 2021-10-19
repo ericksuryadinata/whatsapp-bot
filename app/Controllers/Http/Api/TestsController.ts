@@ -3,10 +3,12 @@ import {training, extract} from "App/Services/Bot/Engine"
 
 export default class TestsController {
   public async training(ctx: HttpContextContract){
-    ctx.response.send(training())
+    ctx.response.send(await training())
   }
 
   public async extract(ctx: HttpContextContract){
-    ctx.response.send(extract())
+    const qs = ctx.request.qs()
+
+    ctx.response.send(await extract(qs.kata))
   }
 }
